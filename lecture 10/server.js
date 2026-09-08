@@ -1,7 +1,10 @@
 const express= require("express")   
 
 const app=express();
+
 const PORT=3000
+
+app.use(express.json());//middleware
 
 const students=[
     {rollNo:1, name:"Abhijeet", section:"BCA-D"},
@@ -26,5 +29,35 @@ app.get("/students/:rollNo",(req,res)=>{
 
 ///Create
 
+app.post("/students",(req,res)=>{
+    const data=req.body;
+    students.push({rollNo:students.length+1,...data});
+    res.json({success:true,data});
+})
+
+//update operation
+app.put("/students/:rollNo",(req,res)=>{
+    const id=req.params.rollNo;
+    const data=req.body;
+    const student=students.find((student)=>student.rollNo===Number(id));
+    if(!student){
+        res.status(404).json({success:false, message:"student not found"});
+    }
+    student.name=data.name;
+    student.section=data.section;
+    res.json({success:true,student});
+})
+
+app.delete("/students/:rollNo",(req,res)=>{
+    const id=req.params.rollNo;
+    const studentIndex=students.findIndex((student)=>student.rollNo===Number(id));
+    if(studentIndex===-1){
+        res.status(404).json({success:false, message:"student not found"});
+    }else{
+        students.splice(studentIndex,1);
+        res.json({success:true, message:"student deleted successfully"});
+    }
+    
+})
 
 app.listen(PORT,()=>console.log("server is running"));
