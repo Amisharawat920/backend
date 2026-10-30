@@ -6,7 +6,7 @@ use("UniversityDB")
 
 // db.students.insert([ //insert,insertOne,insertMany
 //     {
-//         name: "Alex",
+//         name: "Kim Tae",
 //         section: "D",
 //         course: "Btech",
 //         semester: 4,
@@ -59,12 +59,12 @@ use("UniversityDB")
 
 // db.students.find(   //ANd
 //     {marks:{$gt:80}, city:{$eq:"Gurugram"}}
-    
+
 // )
 
 // db.students.find(   //OR
 //     {$or:[{marks:{$gt:80}}, {city:{$eq:"Gurugram"}}]}
-    
+
 // )
 
 // db.students.find({},{_id:0, name:1, marks:1, section:1})
@@ -72,4 +72,4 @@ use("UniversityDB")
 
 // db.students.find().skip(3).limit(3)
 
-db.students.find().sort({marks:-1}) //ascending 1, descending -1
+db.students.find().sort({ marks: -1 }) //ascending 1, descending -1
