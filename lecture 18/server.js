@@ -2,35 +2,35 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-app.get('/', (req, res,next) => {
-    try{
+app.get('/', (req, res, next) => {
+    try {
         throw new Error("Something went wrong");
-    }catch(error){
+    } catch (error) {
         // res.status(500).json({success:false, message:error.message});
         next(error);  //pass the error to the error handling middleware
     }
 })
 
-app.get("/age-check/:age",(req,res,next)=>{
+app.get("/age-check/:age", (req, res, next) => {
     let age = req.params.age;
-    try{
-        if(age<18){
-            throw new Error("You are not eligible to vote!!!!!");
-        }else{
+    try {
+        if (age < 18) {
+            throw new Error("You are not eligible to vote!!!!");
+        } else {
             res.send("You are eligible to vote");
         }
-    }catch(error){
+    } catch (error) {
         // res.status(500).json({success:false, message:error.message});
         next(error);  //pass the error to the error handling middleware
     }
 })
 
-app.use((err,req,res,next)=>{  //error middleware
-    res.status(500).json({success:false, message:err.message});
+app.use((err, req, res, next) => {  //error middleware
+    res.status(500).json({ success: false, message: err.message });
 })
 
-app.use((req,res)=>{  //invalid route middleware
-    res.status(404).json({success:false, message:"Page not found"});
+app.use((req, res) => {  //invalid route middleware
+    res.status(404).json({ success: false, message: "Page not found" });
 })
 
 
