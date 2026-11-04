@@ -72,4 +72,4 @@ use("UniversityDB")
 
 // db.students.find().skip(3).limit(3)
 
-db.students.find().sort({ marks: -1 }) //ascending 1, descending -1
+db.students.find().sort({ marks: 1 }) //ascending 1, descending -1
