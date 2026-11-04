@@ -28,7 +28,7 @@ use("UniversityDB")
 //         }
 //     ]
 // )
-    
+
 
 // db.students.aggregate(
 //     [
@@ -64,9 +64,9 @@ use("UniversityDB")
 //         ,{
 //             $limit:1
 //         }
-        // ,{
-        //     $count:"totalMarks"
-        // }
+// ,{
+//     $count:"totalMarks"
+// }
 //     ]
 // )
 // performance ke basics se indexing jarure hh sbb mein jaruri nhi hh.
