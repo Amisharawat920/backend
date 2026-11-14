@@ -1,0 +1,134 @@
+use("UniversityDB")
+
+// db.students.insert([
+//     {
+//     name: "Amisha",
+//     section: "D",
+//     course: " BCA",
+//     semester: 3,
+//     marks: 90,
+//     contact: 1234567899,
+//     city: "Gurugram"
+//    },
+//    {
+    // name: "Shikha",
+    // section: "D",
+    // course: " BCA",
+    // semester: 5,
+    // marks: 96,
+    // contact: 9876543201,
+    // city: "Delhi"
+//    }
+// ])
+
+// db.students.find()
+// db.students.findOne()
+
+// db.students.find({name: "Amisha"})
+// db.students.find({course: " BCA"})
+
+db.students.updateOne(
+    {name: "Priya"},
+    {
+        $set: {
+            section: "A",
+            course: " BCA",
+            semester: 5,
+            marks: 96,
+            contact: 1236543201,
+            city: "Delhi"
+        }
+   }
+)
+
+// db.students.deleteOne({
+//     _id: ObjectId('6ad85601ea5e3ebde88cb24b')
+
+// })
+
+// db.students.find(
+//     {
+//         marks: {
+//         $gt: 80
+//         }
+//     }
+// )
+
+// db.students.find(
+//     {
+//         marks: {
+//         $gte: 80
+//         }
+//     }
+// )
+
+// db.students.find(
+//     {
+//         city: {
+//         $eq: "Gurugram"
+//         }
+//     }
+// )
+
+// db.students.find(
+//     {
+//         marks: {
+//             $gt: 80
+//         },
+//         city: {
+//             $eq: "Delhi"
+//         }
+
+//     }
+// )
+
+// db.students.find(
+//     {
+//         $or: [{marks: {$gt: 80}}, {city: {$eq: "Delhi"}}]
+//     }
+// )
+
+// db.students.find(
+//     {},{
+//         _id: 0,
+//         name: 1,
+//         marks: 1,
+//         section: 1
+        
+        
+//     }
+// )
+
+// db.students.find(
+//     {},{
+//         // _id: 0,
+//         name: 1,
+//         marks: 1,
+//         section: 1
+        
+        
+//     }
+// )
+
+// db.students.find(
+//     {section: "D"},{
+//         // _id: 0,
+//         name: 1,
+//         marks: 1,
+//         section: 1
+        
+        
+//     }
+// )
+
+// db.students.find().limit(3)
+// db.students.find().skip(2)
+// db.students.find().skip(0).limit(2)
+// db.students.find().skip(1).limit(2)
+// db.students.find().skip(4).limit(6)
+
+// descending order
+// db.students.find().sort({marks: -1})
+
+// ascending order
+// db.students.find().sort({marks: 1})
